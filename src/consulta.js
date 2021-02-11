@@ -7,7 +7,7 @@ menor que 100 y sea a partir del 1 de abril*/
 db.ventas.aggregate(
     [
         {
-            $match: {fechaVenta: {$gt: new Date(2020-04-01)}}
+            $match:{$expr: {$gt: [{$month:"$fecha_venta"},3]}}
         },{
             $group:{
                 _id:{articuloVendido: "$articuloVendido",
